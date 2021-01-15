@@ -1,10 +1,9 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { ShopContext } from '../Context/context/ShopContext';
 import { SVG_CROWN, SVG_CART } from '../files/svg1'
 
-function Navbar() {
-    const [toggle, setToggle] = useState(false)
+function Navbar({toggle, handleDropOpen, dropdownRef, cartRef }) {
     const { cart, shopItems } = useContext(ShopContext)
     const set = (arr,arr2) => {
         let index = []
@@ -21,12 +20,12 @@ function Navbar() {
                 <li><Link to="/shop" className="links">Shop</Link></li>
                 <li><Link to="/contact" className="links">Contact</Link></li>
             </ul>
-            <div onClick={() => setToggle(!toggle)} className="nav-cart">
+            <div ref={cartRef} onClick={handleDropOpen} className="nav-cart">
                 {SVG_CART}<p>{cart.length}</p>
             </div>
         </nav>
         <div className={` ${toggle ? 'dropdown-shown dropdown' : 'none dropdown'}`}>
-                <div className="dropdown-holder">
+                <div ref={dropdownRef}  className="dropdown-holder">
                 {
                 !cartSet.length ? <div className="empty-cart"><p>Your Cart is Empty</p></div> 
                 :

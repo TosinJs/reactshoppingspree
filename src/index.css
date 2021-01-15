@@ -95,6 +95,7 @@ li {
 }
 .dropdown img {
     width: 85%;
+    border-radius: 2px;
 }
 .dropdown-holder {
     height: 240px;
@@ -291,6 +292,7 @@ li {
 }
 .cart-body img {
     width: 100%;
+    border-radius: 5px;
 }
 .cart-body .num{
     position: relative;

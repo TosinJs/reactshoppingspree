@@ -4,19 +4,15 @@ import Category from './Category';
 
 const Categories = ({match}) => {
     const { shopItems } = useContext(ShopContext)
+    const filteredShopItems = shopItems.filter((item) => item.type === match.params.section)
     return (
         <div id="category" className="category container">
         <h3>{match.params.section}</h3>
         {
-            shopItems.map((item) => {
-              if (item.type === match.params.section) {
-                  return (
-                      <Category key={item.id} {...item} />
-                  )
-              }
-              return(
-                  <p>No Categories Yet</p>
-              )
+            filteredShopItems.map((item) => {
+                return (
+                    <Category key={item.id} {...item} />
+                )
             })
         }
         </div>
