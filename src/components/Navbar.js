@@ -14,11 +14,12 @@ function Navbar({toggle, handleDropOpen, dropdownRef, cartRef }) {
     const cartSet = set(cart, shopItems)
     return (
         <>
-        <nav className="nav container">
+        <div className="nav-holder">
+        <nav className="nav">
             <div className="nav-crown"><Link className="links" to="/">{SVG_CROWN}</Link></div>
             <ul className="nav-links">
+                <li><Link to="/" className="links">Home</Link></li>
                 <li><Link to="/shop" className="links">Shop</Link></li>
-                <li><Link to="/contact" className="links">Contact</Link></li>
             </ul>
             <div ref={cartRef} onClick={handleDropOpen} className="nav-cart">
                 {SVG_CART}<p>{cart.length}</p>
@@ -46,6 +47,7 @@ function Navbar({toggle, handleDropOpen, dropdownRef, cartRef }) {
             <div className="btn">
                 <Link className="links" to="/cart"><button>Go To Cart</button></Link>
             </div>
+        </div>
         </div>
         </>
     )
