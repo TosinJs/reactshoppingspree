@@ -5,11 +5,7 @@ import Category from './Category';
 
 const Shop = () => {
     const { shopItems } = useContext(ShopContext)
-    let types = []
-    homeFiles.map((item) => {
-        types.push(item.name)
-        return null
-    })
+    let types = homeFiles.map((item) => item.name)
     return(
         <div className="shop container">
             {

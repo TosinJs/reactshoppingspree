@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
+import React, { useContext  } from 'react';
 import { Link } from 'react-router-dom';
 import { ShopContext } from '../Context/context/ShopContext';
 import { SVG_CROWN, SVG_CART } from '../files/svg1'
 
-function Navbar({toggle, handleDropOpen, dropdownRef, cartRef }) {
+function Navbar({toggle, handleDropOpen, dropdownRef, cartRef, match }) {
     const { cart, shopItems } = useContext(ShopContext)
     const set = (arr,arr2) => {
         let index = []
