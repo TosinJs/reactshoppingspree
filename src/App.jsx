@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import Home from './components/Home';
 import Navbar from './components/Navbar';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Categories from './components/Categories';
 import Shop from './components/Shop';
 import Cart from './components/cart';
@@ -21,12 +21,12 @@ function App() {
     <BrowserRouter>
       <div onClick={handleClick}>
         <Navbar dropdownRef={dropdownRef} handleDropOpen={handleDropOpen} toggle={toggle} cartRef={cartRef}/>
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/shop/:section" component={Categories} />
-            <Route path="/shop" component={Shop} />
-            <Route path="/cart" component={Cart} />
-          </Switch> 
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route path="/shop/:section" element={<Categories />} />
+            <Route path="/shop" element={<Shop />} />
+            <Route path="/cart" element={<Cart />} />
+          </Routes> 
       </div>
     </BrowserRouter>
   )

@@ -1,13 +1,15 @@
 import React, { useContext } from 'react';
+import { useParams } from 'react-router-dom';
 import { ShopContext } from '../Context/context/ShopContext';
 import Category from './Category';
 
-const Categories = ({match}) => {
+const Categories = ({ match }) => {
     const { shopItems } = useContext(ShopContext)
-    const filteredShopItems = shopItems.filter((item) => item.type === match.params.section)
+    const { section } = useParams()
+    const filteredShopItems = shopItems.filter((item) => item.type === section)
     return (
         <div id="category" className="category container">
-        <h3>{match.params.section}</h3>
+        <h3>{section}</h3>
         {
             filteredShopItems.map((item) => {
                 return (
